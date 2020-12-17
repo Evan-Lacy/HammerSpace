@@ -10,13 +10,12 @@ namespace HammerSpace.Data
 {
     public class Inventory
     {
+        [Key]
         public int InventoryId { get; set; }
 
         [Required]
         public int OwnerId { get; set; }
 
-        //[Required]
-        [ForeignKey]
-        //public 
+        public virtual List<OwnedGames> OwnedGames { get; set; } = new List<OwnedGames>();
     }
 }
