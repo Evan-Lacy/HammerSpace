@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,26 @@ namespace HammerSpace.Data
                 return playerAmt;
             }
         }
+    }
+
+    public enum Genre
+    {
+        Action = 1,
+        [Description("Action-adventure")]
+        ActionAdventure,
+        Adventure,
+        Horror,
+        Idle,
+        Logic,
+        MMO,
+        Party,
+        Puzzle,
+        [Description("Role-playing")]
+        RolePlaying,
+        Sandbox,
+        Simulation,
+        Strategy,
+        Sports
     }
 
 }

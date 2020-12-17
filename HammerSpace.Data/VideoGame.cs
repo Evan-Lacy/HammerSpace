@@ -13,6 +13,7 @@ namespace HammerSpace.Data
         public Genre Genre { get; set; }
         public ESRBRating ESRBRating { get; set; }
         public string Publisher { get; set; }
+        public string Console { get; set; }
     }
 
     //public enum Console
@@ -29,26 +30,6 @@ namespace HammerSpace.Data
     //    [Description("Nintendo Switch")]
     //    Switch,
     //}
-
-    public enum Genre
-    {
-        Action=1,
-        [Description("Action-adventure")]
-        ActionAdventure,
-        Adventure,
-        Horror,
-        Idle,
-        Logic,
-        MMO,
-        Party,
-        Puzzle,
-        [Description("Role-playing")]
-        RolePlaying,
-        Sandbox,
-        Simulation,
-        Strategy,
-        Sports
-    }
 
     public enum ESRBRating
     {
