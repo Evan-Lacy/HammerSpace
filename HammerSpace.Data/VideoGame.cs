@@ -16,21 +16,6 @@ namespace HammerSpace.Data
         public string Console { get; set; }
     }
 
-    //public enum Console
-    //{                       //An enum for the Console type of the VideoGame to allow the User to choose
-    //    [Description("Xbox One")]
-    //    XboxOne = 1,        //what systems the game is available to play on. Will allow the user to select
-    //    PC,                 //multiple with a dropdown select box - mdb multi selection
-    //    [Description("Playstation 4")]
-    //    PS4,
-    //    [Description("Playstation 5")]
-    //    PS5,
-    //    [Description("Xbox Series X")]
-    //    XboxSeriesX,
-    //    [Description("Nintendo Switch")]
-    //    Switch,
-    //}
-
     public enum ESRBRating
     {
         [Description("E for Everyone")]
