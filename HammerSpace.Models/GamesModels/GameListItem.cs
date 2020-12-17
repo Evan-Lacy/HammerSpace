@@ -1,11 +1,12 @@
-﻿using System;
+﻿using HammerSpace.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HammerSpace.Models
+namespace HammerSpace.Models.GamesModels
 {
     public class GameListItem
     {
@@ -17,5 +18,13 @@ namespace HammerSpace.Models
         public double AveragePlaytime { get; set; }
         [Display(Name ="Player Count")]
         public string PlayerCount { get; set; }
+
+        public GameType GameType { get; set; }
+    }
+
+    public enum GameType
+    {
+        VideoGame=1, 
+        BoardGame
     }
 }

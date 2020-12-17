@@ -257,6 +257,10 @@
       <Project>{16AF624F-0486-4796-ABA5-723BE8F12F7E}</Project>
       <Name>HammerSpace.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HammerSpace.Services\HammerSpace.Services.csproj">
+      <Project>{6FF995C0-E5B1-4F0C-B971-BE21B08439C9}</Project>
+      <Name>HammerSpace.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
