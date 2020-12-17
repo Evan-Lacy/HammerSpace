@@ -79,6 +79,11 @@ namespace HammerSpace.WebMVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone Number")]        //(317)-555-1234
+        [StringLength(20, ErrorMessage = "The Phone Number must be written as '(xxx)-xxx-xxxx'.", MinimumLength = 10)]  //Either 14 characters for the string or find a way to erase the the parantheses and hyphens
+        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel
