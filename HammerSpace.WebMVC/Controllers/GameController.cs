@@ -1,4 +1,5 @@
-﻿using HammerSpace.Services.GameServices;
+﻿using HammerSpace.Models.GamesModels;
+using HammerSpace.Services.GameServices;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,14 @@ using System.Web.Mvc;
 
 namespace HammerSpace.WebMVC.Controllers
 {
+    [Authorize]
     public class GameController : Controller
     {
         // GET: Game
         public ActionResult Index()
         {
-            return View();
+            var model = new GameListItem[0];
+            return View(model);
         }
 
         public GameService CreateGameService()
@@ -24,9 +27,12 @@ namespace HammerSpace.WebMVC.Controllers
             return service;
         }
 
-        //public ActionResult Create()
-        //{
 
-        //}
+        //Create a Game
+        //GET
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }

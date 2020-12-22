@@ -9,7 +9,7 @@ namespace HammerSpace.Services.GameServices
     public class GameService
     {
         private readonly Guid _userId;
-
+        //Assign the Users Guid to the variable to use throughout the service method
         public  GameService(Guid userId)
         {
             _userId = userId;
@@ -18,5 +18,7 @@ namespace HammerSpace.Services.GameServices
         // load up list of games
         //query context for video games = ctx.VideoGames
         //Set game type to video game
+
+
     }
 }
