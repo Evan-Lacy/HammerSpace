@@ -1,4 +1,4 @@
-﻿using HammerSpace.Data;
+﻿using HammerSpace.Data.Games;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,12 +19,7 @@ namespace HammerSpace.Models.GamesModels
         [Display(Name ="Player Count")]
         public string PlayerCount { get; set; }
 
+        //Enum type to check later with LINQ methods to then display appropriate information within GameService
         public GameType GameType { get; set; }
-    }
-
-    public enum GameType
-    {
-        VideoGame=1, 
-        BoardGame
     }
 }

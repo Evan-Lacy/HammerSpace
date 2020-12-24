@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HammerSpace.Data
+namespace HammerSpace.Data.Games
 {
     public class Game
     {
@@ -30,6 +30,8 @@ namespace HammerSpace.Data
         public int MinGamePlayers { get; set; }
         public int? MaxGamePlayers { get; set; }
 
+        public GameType GameType { get; set; }
+
         [Display(Name = "Number of Players")]
         public string PlayerCount
         {
@@ -47,6 +49,12 @@ namespace HammerSpace.Data
             }
         }
 
+    }
+
+    public enum GameType
+    {
+        VideoGame = 1,
+        BoardGame
     }
 
     public enum Genre

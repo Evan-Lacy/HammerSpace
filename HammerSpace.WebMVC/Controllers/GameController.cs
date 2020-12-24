@@ -28,9 +28,20 @@ namespace HammerSpace.WebMVC.Controllers
         }
 
 
-        //Create a Game
+        //Create a Game via View and return it to the database
         //GET
         public ActionResult Create()
+        {
+            return View();
+        }
+
+        //Create a View for the VideoGame and return it to the database
+        public ActionResult VideoGameCreate()
+        {
+            return View();
+        }
+
+        public ActionResult BoardGameCreate()
         {
             return View();
         }

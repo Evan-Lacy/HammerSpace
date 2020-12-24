@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HammerSpace.Models.GamesModels
 {
-    public class BoardGameListItem
+    public class BoardGameCreate
     {
         public Genre Genre { get; set; }
         public string Category { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HammerSpace.Data.Games;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace HammerSpace.Models.GamesModels
         public int? MaxGamePlayers { get; set; }
 
         //Bool property here to have a check later in the view to generate the necessary field for a video game or board game creation screen
-        public bool IsVideoGame { get; set; }
+        public GameType GameType { get; set; }
 
     }
 }

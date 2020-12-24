@@ -54,8 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoardGame.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="Games\BoardGame.cs" />
+    <Compile Include="Games\Game.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202012162110262_InitialCreate.cs" />
@@ -70,10 +70,14 @@
     <Compile Include="Migrations\202012172227197_GameShitgettingFixed.Designer.cs">
       <DependentUpon>202012172227197_GameShitgettingFixed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012240702494_gametable-update.cs" />
+    <Compile Include="Migrations\202012240702494_gametable-update.Designer.cs">
+      <DependentUpon>202012240702494_gametable-update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OwnedGames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VideoGame.cs" />
+    <Compile Include="Games\VideoGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012172227197_GameShitgettingFixed.resx">
       <DependentUpon>202012172227197_GameShitgettingFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012240702494_gametable-update.resx">
+      <DependentUpon>202012240702494_gametable-update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

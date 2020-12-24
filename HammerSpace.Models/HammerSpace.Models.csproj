@@ -54,9 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GamesModels\BoardGameCreate.cs" />
     <Compile Include="GamesModels\BoardGameListItem.cs" />
     <Compile Include="GamesModels\GameCreate.cs" />
     <Compile Include="GamesModels\GameListItem.cs" />
+    <Compile Include="GamesModels\VideoGameCreate.cs" />
     <Compile Include="GamesModels\VideoGameListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
