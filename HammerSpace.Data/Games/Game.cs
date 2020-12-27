@@ -53,7 +53,9 @@ namespace HammerSpace.Data.Games
 
     public enum GameType
     {
+        [Display(Name="Video Game")]
         VideoGame = 1,
+        [Display(Name = "Board Game")]
         BoardGame
     }
 
