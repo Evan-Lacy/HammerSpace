@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace HammerSpace.WebMVC.Controllers
 {
+    [Authorize]
     public class MovieController : Controller
     {
         // GET: Movie
@@ -14,6 +15,12 @@ namespace HammerSpace.WebMVC.Controllers
         {
             var model = new MovieListItem[0];
             return View(model);
+        }
+
+        //GET
+        public ActionResult Create()
+        {
+            return View();
         }
     }
 }
