@@ -16,7 +16,7 @@ namespace HammerSpace.Data
         public int OwnerId { get; set; }
 
         //[Required]
-        [ForeignKey]
+        //[ForeignKey]
         //public 
     }
 }
