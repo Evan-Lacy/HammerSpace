@@ -7,10 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
 <div class="form-horizontal">
     <h4>GameCreate</h4>
     <hr />
@@ -64,7 +64,19 @@
         </div>
     </div>
 
-    
+    @*I need to render a partial view based on the type of game selected during the creation of a new game.
+        if they choose a VideoGame, render the creation inputs for the Videogame
+        else/if they choose a BoardGame, render the creation inputs for the boardgame  *@
+    @{ if (Model.GameType == HammerSpace.Data.Games.GameType.VideoGame)
+        {
+            @*Generate view section or whatever for Video Game stuff to create*@
+            @Html.Partial("_VideoGameCreate", Model)
+        }
+        else if(Model.GameType == HammerSpace.Data.Games.GameType.BoardGame)
+        {
+            @Html.Partial("_BoardGameCreate", Model)
+        }
+    }
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

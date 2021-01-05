@@ -26,32 +26,38 @@
         <th>
             @Html.DisplayNameFor(model => model.PlayerCount)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameType)
+        </th>
+        
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.GameId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GameDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AveragePlaytime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlayerCount)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.GameId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GameDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AveragePlaytime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PlayerCount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GameType)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
 }
 
 </table>
