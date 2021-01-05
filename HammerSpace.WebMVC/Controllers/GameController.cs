@@ -32,18 +32,22 @@ namespace HammerSpace.WebMVC.Controllers
         //GET
         public ActionResult Create()
         {
-            return View();
+            var BGDefault = new BoardGameCreate();
+            return View(BGDefault);
         }
 
-        //Create a View for the VideoGame and return it to the database
+        //Create a Partial View for the VideoGame and return it to the database upon creation
         public ActionResult VideoGameCreate()
         {
-            return View();
+            var VGModel = new VideoGameCreate();
+            return View(VGModel);
         }
 
+        //Create a Partial view for the Board game and return it to the database upon creation
         public ActionResult BoardGameCreate()
         {
-            return View();
+            var BGModel = new BoardGameCreate();
+            return View(BGModel);
         }
     }
 }

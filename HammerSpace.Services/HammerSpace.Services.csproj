@@ -61,5 +61,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HammerSpace.Data\HammerSpace.Data.csproj">
+      <Project>{16af624f-0486-4796-aba5-723be8f12f7e}</Project>
+      <Name>HammerSpace.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HammerSpace.Models\HammerSpace.Models.csproj">
+      <Project>{97FDB379-DE76-40CB-A2E1-47E1FF5ECDFC}</Project>
+      <Name>HammerSpace.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -239,6 +239,7 @@
     <Content Include="Views\Game\VideoGameCreate.cshtml" />
     <Content Include="Views\Game\Create.cshtml" />
     <Content Include="Views\Game\_VideoGameCreate.cshtml" />
+    <Content Include="Views\Game\_BoardGameCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

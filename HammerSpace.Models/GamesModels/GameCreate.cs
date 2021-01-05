@@ -11,9 +11,9 @@ namespace HammerSpace.Models.GamesModels
     public class GameCreate
     {
         [Required]
-        public string Title { get; set; }
+        public string GameTitle { get; set; }
         [Required]
-        public string Description { get; set; }
+        public string GameDescription { get; set; }
         [Required]
         public double AveragePlaytime { get; set; }
         [Required]
