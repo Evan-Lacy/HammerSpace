@@ -24,6 +24,11 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*Shows the Movies link in the Navbar only if logged in*@
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Movies", "Index", "Movie")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

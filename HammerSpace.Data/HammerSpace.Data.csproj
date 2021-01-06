@@ -56,9 +56,9 @@
   <ItemGroup>
     <Compile Include="Inventory.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202101050534019_initial-movie-migration.cs" />
-    <Compile Include="Migrations\202101050534019_initial-movie-migration.Designer.cs">
-      <DependentUpon>202101050534019_initial-movie-migration.cs</DependentUpon>
+    <Compile Include="Migrations\202101061706480_initial-movie-migration.cs" />
+    <Compile Include="Migrations\202101061706480_initial-movie-migration.Designer.cs">
+      <DependentUpon>202101061706480_initial-movie-migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Movie.cs" />
@@ -69,8 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101050534019_initial-movie-migration.resx">
-      <DependentUpon>202101050534019_initial-movie-migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101061706480_initial-movie-migration.resx">
+      <DependentUpon>202101061706480_initial-movie-migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

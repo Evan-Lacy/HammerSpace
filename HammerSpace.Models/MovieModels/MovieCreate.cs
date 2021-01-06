@@ -8,16 +8,22 @@ using System.Threading.Tasks;
 
 namespace HammerSpace.Models.MovieModels
 {
-    public class MovieListItem
+    public class MovieCreate
     {
-        public int Id { get; set; }
+        [Required]
         public string MovieTitle { get; set; }
+        [Required]
+        [MinLength(10, ErrorMessage = "Please enter at least 10 characters.")]
+        [MaxLength(300, ErrorMessage = "You description is too long.")]
         public string MovieDescription { get; set; }
+        [Required]
         [Display(Name = "Run Time")]
         public double MovieRunTime { get; set; }
         public string Director { get; set; }
+        [Required]
         [Display(Name = "Rated")]
         public MovieRating MovieRating { get; set; }
+        [Required]
         [Display(Name = "Genre")]
         public MovieGenre MovieGenre { get; set; }
         [Display(Name = "Released")]

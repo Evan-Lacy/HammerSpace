@@ -236,6 +236,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Movie\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -261,6 +262,10 @@
     <ProjectReference Include="..\HammerSpace.Models\HammerSpace.Models.csproj">
       <Project>{97FDB379-DE76-40CB-A2E1-47E1FF5ECDFC}</Project>
       <Name>HammerSpace.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HammerSpace.Services\HammerSpace.Services.csproj">
+      <Project>{6FF995C0-E5B1-4F0C-B971-BE21B08439C9}</Project>
+      <Name>HammerSpace.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

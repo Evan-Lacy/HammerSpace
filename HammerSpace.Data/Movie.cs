@@ -11,7 +11,7 @@ namespace HammerSpace.Data
     public class Movie
     {
         [Key]
-        public int MovieId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string MovieTitle { get; set; }
         [Required]
