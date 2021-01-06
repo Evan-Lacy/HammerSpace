@@ -19,11 +19,12 @@ namespace HammerSpace.WebMVC.Controllers
             return View(model);
         }
 
+
+
         public GameService CreateGameService()
         {
             //Create Service object to be used throughout the controller - DRY principle
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new GameService(userId);
+            var service = new GameService();
             return service;
         }
 
@@ -33,21 +34,47 @@ namespace HammerSpace.WebMVC.Controllers
         public ActionResult Create()
         {
             var BGDefault = new BoardGameCreate();
+            
             return View(BGDefault);
         }
 
         //Create a Partial View for the VideoGame and return it to the database upon creation
-        public ActionResult VideoGameCreate()
+        public ActionResult VideoGameCreate(VideoGameCreate model)
         {
-            var VGModel = new VideoGameCreate();
-            return View(VGModel);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var service = new VideoGameService();
+
+            if (service.CreateVideoGame(model))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
         }
 
         //Create a Partial view for the Board game and return it to the database upon creation
-        public ActionResult BoardGameCreate()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult BoardGameCreate(BoardGameCreate model)
         {
-            var BGModel = new BoardGameCreate();
-            return View(BGModel);
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var service = new BoardGameService();
+
+            if (service.CreateBoardGame(model))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
         }
     }
 }

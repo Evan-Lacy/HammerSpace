@@ -62,7 +62,7 @@ namespace HammerSpace.Data.Games
     public enum Genre
     {
         Action = 1,
-        [Description("Action-adventure")]
+        [Display(Name ="Action-adventure")]
         ActionAdventure,
         Adventure,
         Horror,
@@ -71,7 +71,7 @@ namespace HammerSpace.Data.Games
         MMO,
         Party,
         Puzzle,
-        [Description("Role-playing")]
+        [Display(Name = "Role-playing")]
         RolePlaying,
         Sandbox,
         Simulation,

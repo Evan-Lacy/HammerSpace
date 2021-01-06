@@ -11,7 +11,7 @@ namespace HammerSpace.Models.GamesModels
     public class VideoGameCreate : GameCreate
     {
         public bool LocalCoop { get; set; }
-        public Genre Genre { get; set; }
+        public Genre VideoGameGenre { get; set; }
         public ESRBRating ESRBRating { get; set; }
         public string Publisher { get; set; }
         public string Console { get; set; }

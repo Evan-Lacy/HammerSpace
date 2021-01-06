@@ -74,6 +74,10 @@
     <Compile Include="Migrations\202012240702494_gametable-update.Designer.cs">
       <DependentUpon>202012240702494_gametable-update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101062215325_Genre-namechanges.cs" />
+    <Compile Include="Migrations\202101062215325_Genre-namechanges.Designer.cs">
+      <DependentUpon>202101062215325_Genre-namechanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OwnedGames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012240702494_gametable-update.resx">
       <DependentUpon>202012240702494_gametable-update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101062215325_Genre-namechanges.resx">
+      <DependentUpon>202101062215325_Genre-namechanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

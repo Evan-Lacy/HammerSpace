@@ -18,10 +18,10 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Genre, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.BoardGameGenre, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EnumDropDownListFor(model => model.Genre, "Select a Game Type", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "text-danger" })
+            @Html.EnumDropDownListFor(model => model.BoardGameGenre, "Select a Game Type", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BoardGameGenre, "", new { @class = "text-danger" })
         </div>
     </div>
 

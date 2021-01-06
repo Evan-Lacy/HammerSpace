@@ -11,7 +11,7 @@ namespace HammerSpace.Models.GamesModels
     public class GameListItem
     {
         public int GameId { get; set; }
-        public string Title { get; set; }
+        public string GameTitle { get; set; }
         [Display(Name = "Game Description")]
         public string GameDescription { get; set; }
         [Display(Name = "Average Playtime Length")]

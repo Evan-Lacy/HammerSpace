@@ -9,7 +9,7 @@ namespace HammerSpace.Models.GamesModels
 {
     public class BoardGameListItem
     {
-        public Genre Genre { get; set; }
+        public Genre BoardGameGenre { get; set; }
         public string Category { get; set; }
         public string Publisher { get; set; }
         public bool IsDiceGame { get; set; }
