@@ -10,7 +10,7 @@ namespace HammerSpace.Models.MovieModels
 {
     public class MovieListItem
     {
-        public int MovieId { get; set; }
+        public int Id { get; set; }
         public string MovieTitle { get; set; }
         public string MovieDescription { get; set; }
         [Display(Name = "Run Time")]

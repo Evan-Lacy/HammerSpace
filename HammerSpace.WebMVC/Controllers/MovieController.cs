@@ -1,4 +1,6 @@
 ﻿using HammerSpace.Models.MovieModels;
+using HammerSpace.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +15,12 @@ namespace HammerSpace.WebMVC.Controllers
         // GET: Movie
         public ActionResult Index()
         {
-            var model = new MovieListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MovieService(userId);
+            var model = service.GetMovies();
+
             return View(model);
+            //return View();
         }
 
         //GET
@@ -27,11 +33,17 @@ namespace HammerSpace.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(MovieCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MovieService(userId);
+
+            service.CreateMovie(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

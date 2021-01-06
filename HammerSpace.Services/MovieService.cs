@@ -38,19 +38,30 @@ namespace HammerSpace.Services
             }
         }
 
+        //Get All movies from database
         public IEnumerable<MovieListItem> GetMovies()
         {
-            using(var ctx = new ApplicationDbContext())
+            //Stretch goal: Organize by Title descending
+
+            using (var ctx = new ApplicationDbContext())
             {
-                var query = 
+                var query =
                     ctx
-                    .Movies.Where(e => e.MovieTitle == MovieTitle)
+                    .Movies
                     .Select(
-                        e => 
+                        e =>
                         new MovieListItem
                         {
-                            MovieId = e.Mo
-                        })
+                            Id = e.Id,
+                            MovieTitle = e.MovieTitle,
+                            MovieDescription = e.MovieDescription,
+                            Director = e.Director,
+                            MovieRunTime = e.MovieRunTime,
+                            MovieGenre = e.MovieGenre,
+                            MovieRating = e.MovieRating,
+                            ReleaseYear = e.ReleaseYear
+                        });
+                return query.ToArray();
             }
         }
     }

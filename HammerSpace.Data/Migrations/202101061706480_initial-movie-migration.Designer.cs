@@ -13,7 +13,7 @@ namespace HammerSpace.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202101050534019_initial-movie-migration"; }
+            get { return "202101061706480_initial-movie-migration"; }
         }
         
         string IMigrationMetadata.Source
