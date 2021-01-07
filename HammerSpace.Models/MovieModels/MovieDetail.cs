@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace HammerSpace.Models.MovieModels
 {
-    public class MovieListItem
+    public class MovieDetail
     {
+        [Required]
         public int Id { get; set; }
         [Display(Name = "Movie Title")]
         public string MovieTitle { get; set; }

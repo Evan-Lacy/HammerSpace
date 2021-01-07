@@ -42,8 +42,17 @@ namespace HammerSpace.WebMVC.Controllers
             var service = new MovieService();
             if (service.CreateMovie(model))
             {
+                TempData["SaveResult"] = "Your Movie was Created";
                 return RedirectToAction("Index");
             }
+
+            return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var service = new MovieService();
+            var model = service.GetMovieById(id);
 
             return View(model);
         }

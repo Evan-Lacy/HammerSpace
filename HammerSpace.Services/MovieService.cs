@@ -64,5 +64,27 @@ namespace HammerSpace.Services
                 return query.ToArray();
             }
         }
+
+        public MovieDetail GetMovieById(int id)
+        {
+            using( var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Movies.Single(e => e.Id == id);
+                return
+                    new MovieDetail
+                    {
+                        Id = entity.Id,
+                        MovieTitle = entity.MovieTitle,
+                        MovieDescription = entity.MovieDescription,
+                        MovieRunTime = entity.MovieRunTime,
+                        Director = entity.Director,
+                        MovieRating = entity.MovieRating,
+                        MovieGenre = entity.MovieGenre,
+                        ReleaseYear = entity.ReleaseYear
+                    };
+            }
+        }
     }
 }

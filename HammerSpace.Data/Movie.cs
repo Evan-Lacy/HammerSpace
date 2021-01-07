@@ -44,7 +44,7 @@ namespace HammerSpace.Data
         Mystery,
         Romance,
         Satire,
-        [Description("Science Fiction")]
+        [Display(Name ="Science Fiction")]
         ScienceFiction,
         Thriller,
         Western
@@ -54,9 +54,9 @@ namespace HammerSpace.Data
     {
         G=1,
         PG,
-        [Description("PG-13")]
+        [Display(Name ="PG-13")]
         PG13,
-        [Description("NC-17")]
+        [Display(Name = "NC-17")]
         NC17,
         R,
         NR

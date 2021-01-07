@@ -11,13 +11,15 @@ namespace HammerSpace.Models.MovieModels
     public class MovieCreate
     {
         [Required]
+        [Display(Name ="Movie Title")]
         public string MovieTitle { get; set; }
         [Required]
         [MinLength(10, ErrorMessage = "Please enter at least 10 characters.")]
-        [MaxLength(300, ErrorMessage = "You description is too long.")]
+        [MaxLength(3000, ErrorMessage = "You description is too long.")]
+        [Display(Name ="Movie Description")]
         public string MovieDescription { get; set; }
         [Required]
-        [Display(Name = "Run Time")]
+        [Display(Name = "Run Time (in min)")]
         public double MovieRunTime { get; set; }
         public string Director { get; set; }
         [Required]
