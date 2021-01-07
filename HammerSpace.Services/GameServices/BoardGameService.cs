@@ -15,7 +15,6 @@ namespace HammerSpace.Services.GameServices
         {
             var entity = new BoardGame()
             {
-                //General Game Properties
                 //General Game properties
                 GameTitle = model.GameTitle,
                 GameDescription = model.GameDescription,

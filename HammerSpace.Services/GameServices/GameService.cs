@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace HammerSpace.Services.GameServices
 {
+    //DON'T TOUCH
+
     public class GameService
     {
         //private readonly Guid _userId;

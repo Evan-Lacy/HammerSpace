@@ -20,21 +20,12 @@ namespace HammerSpace.WebMVC.Controllers
         }
 
 
-
-        public GameService CreateGameService()
-        {
-            //Create Service object to be used throughout the controller - DRY principle
-            var service = new GameService();
-            return service;
-        }
-
-
         //Create a Game via View and return it to the database
         //GET
         public ActionResult Create()
         {
             var BGDefault = new BoardGameCreate();
-            
+
             return View(BGDefault);
         }
 
@@ -59,7 +50,7 @@ namespace HammerSpace.WebMVC.Controllers
         //Create a Partial view for the Board game and return it to the database upon creation
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult BoardGameCreate(BoardGameCreate model)
+        public ActionResult Create(GameCreate model)
         {
 
             if (!ModelState.IsValid)
@@ -67,12 +58,26 @@ namespace HammerSpace.WebMVC.Controllers
                 return View(model);
             }
 
-            var service = new BoardGameService();
-
-            if (service.CreateBoardGame(model))
+            if (model.GameType == Data.Games.GameType.VideoGame)
             {
-                return RedirectToAction("Index");
+                var service = new VideoGameService();
+
+                if (service.CreateVideoGame((VideoGameCreate)model))
+                {
+                    return RedirectToAction("Index");
+                }
             }
+            else if (model.GameType == Data.Games.GameType.BoardGame)
+            {
+                var service = new BoardGameService();
+
+                if (service.CreateBoardGame((BoardGameCreate)model))
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+
 
             return View(model);
         }
