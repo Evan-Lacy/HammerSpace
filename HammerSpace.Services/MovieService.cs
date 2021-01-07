@@ -86,5 +86,26 @@ namespace HammerSpace.Services
                     };
             }
         }
+
+        public bool UpdateMovie(MovieEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Movies
+                    .Single(e => e.Id == model.Id);
+
+                entity.MovieTitle = model.MovieTitle;
+                entity.MovieDescription = model.MovieDescription;
+                entity.MovieRunTime = model.MovieRunTime;
+                entity.Director = model.Director;
+                entity.MovieRating = model.MovieRating;
+                entity.MovieGenre = model.MovieGenre;
+                entity.ReleaseYear = model.ReleaseYear;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

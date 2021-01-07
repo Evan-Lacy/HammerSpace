@@ -56,5 +56,51 @@ namespace HammerSpace.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var service = new MovieService();
+            var deet = service.GetMovieById(id);
+
+            var model =
+                new MovieEdit
+                {
+                    MovieTitle = deet.MovieTitle,
+                    MovieDescription = deet.MovieDescription,
+                    MovieRunTime = deet.MovieRunTime,
+                    Director = deet.Director,
+                    MovieRating = deet.MovieRating,
+                    MovieGenre = deet.MovieGenre,
+                    ReleaseYear = deet.ReleaseYear,
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, MovieEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (model.Id != id)
+            {
+                ModelState.AddModelError("", "You have a mismatched Id");
+                return View(model);
+            }
+
+            var service = new MovieService();
+
+            if (service.UpdateMovie(model))
+            {
+                TempData["SaveResult"] = "Your Movie was Updated";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your movie could not be updated.");
+            return View(model);
+        }
     }
 }
