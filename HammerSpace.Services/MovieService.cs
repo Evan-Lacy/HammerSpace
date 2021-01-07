@@ -107,5 +107,19 @@ namespace HammerSpace.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteMovie(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Movies
+                    .Single(e => e.Id == id);
+
+                ctx.Movies.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

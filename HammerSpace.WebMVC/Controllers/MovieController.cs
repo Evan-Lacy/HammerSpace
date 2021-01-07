@@ -102,5 +102,28 @@ namespace HammerSpace.WebMVC.Controllers
             ModelState.AddModelError("", "Your movie could not be updated.");
             return View(model);
         }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = new MovieService();
+            var model = service.GetMovieById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteMovie(int id)
+        {
+            var service = new MovieService();
+
+            service.DeleteMovie(id);
+
+            TempData["SaveResult"] = "Your movie was yote out the database.";
+
+            return RedirectToAction("Index");
+        }
     }
 }
