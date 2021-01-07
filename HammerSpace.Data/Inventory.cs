@@ -15,8 +15,6 @@ namespace HammerSpace.Data
         [Required]
         public int OwnerId { get; set; }
 
-        //[Required]
-        //[ForeignKey]
-        //public 
+        public virtual List<OwnedMovies> OwnedMovies { get; set; } = new List<OwnedMovies>();
     }
 }
