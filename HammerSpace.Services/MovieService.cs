@@ -10,12 +10,12 @@ namespace HammerSpace.Services
 {
     public class MovieService
     {
-        private readonly Guid _userId;
+        //private readonly Guid _userId;
 
-        public MovieService(Guid userId)
-        {
-            _userId = userId;
-        }
+        //public MovieService(Guid userId)
+        //{
+        //    _userId = userId;
+        //}
 
         //Create a movie and store it to the Database
         public bool CreateMovie(MovieCreate model)
@@ -57,8 +57,8 @@ namespace HammerSpace.Services
                             MovieDescription = e.MovieDescription,
                             Director = e.Director,
                             MovieRunTime = e.MovieRunTime,
-                            MovieGenre = e.MovieGenre,
                             MovieRating = e.MovieRating,
+                            MovieGenre = e.MovieGenre,
                             ReleaseYear = e.ReleaseYear
                         });
                 return query.ToArray();

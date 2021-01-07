@@ -15,8 +15,8 @@ namespace HammerSpace.WebMVC.Controllers
         // GET: Movie
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new MovieService(userId);
+            //var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MovieService();
             var model = service.GetMovies();
 
             return View(model);
@@ -38,12 +38,14 @@ namespace HammerSpace.WebMVC.Controllers
                 return View(model);
             }
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new MovieService(userId);
+            //var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MovieService();
+            if (service.CreateMovie(model))
+            {
+                return RedirectToAction("Index");
+            }
 
-            service.CreateMovie(model);
-
-            return RedirectToAction("Index");
+            return View(model);
         }
     }
 }

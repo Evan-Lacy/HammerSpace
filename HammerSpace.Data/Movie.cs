@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace HammerSpace.Data
 {
+    //Movie item for the HammerSpace database - contains the below properties, with Nullable field
+    //for Release Year and, if updated to C# vers 8.0, nullable Director field. Enums hold the values
+    //for the Ratings and the Genre, as those attributes are premade and should not be filled in. 
+    //Names for fields with the prefix 'Movie' are such solely to avoid readability confusion later
+    //when referencing Genres of Books, Games, and Movies
     public class Movie
     {
         [Key]
