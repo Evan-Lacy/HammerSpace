@@ -16,6 +16,7 @@ namespace HammerSpace.Data
         [Required]
         public int OwnerId { get; set; }
 
+        public virtual List<OwnedMovies> OwnedMovies { get; set; } = new List<OwnedMovies>();
         public virtual List<OwnedGames> OwnedGames { get; set; } = new List<OwnedGames>();
     }
 }

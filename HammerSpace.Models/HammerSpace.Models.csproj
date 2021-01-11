@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MovieModels\MovieCreate.cs" />
+    <Compile Include="MovieModels\MovieDetail.cs" />
+    <Compile Include="MovieModels\MovieEdit.cs" />
+    <Compile Include="MovieModels\MovieListItem.cs" />
     <Compile Include="GamesModels\BoardGameListItem.cs" />
     <Compile Include="GamesModels\GameListItem.cs" />
     <Compile Include="GamesModels\VideoGameListItem.cs" />
@@ -63,6 +67,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\HammerSpace.Data\HammerSpace.Data.csproj">
       <Project>{16AF624F-0486-4796-ABA5-723BE8F12F7E}</Project>
