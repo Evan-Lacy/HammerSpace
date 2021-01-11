@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameServices\BoardGameService.cs" />
+    <Compile Include="GameServices\GameService.cs" />
     <Compile Include="GameServices\VideoGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -26,6 +26,7 @@ nav,
 section,
 summary {
   display: block;
+  background-color:purple;
 }
 audio,
 canvas,

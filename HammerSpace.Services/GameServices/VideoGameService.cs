@@ -11,7 +11,40 @@ namespace HammerSpace.Services.GameServices
 {
     public class VideoGameService
     {
-        public bool CreateVideoGame(VideoGameCreate model)
+        private readonly Guid _userId;
+        //Assign the Users Guid to the variable to use throughout the service method
+        public VideoGameService(Guid userId)
+        {
+            _userId = userId;
+        }
+
+        public IEnumerable<GameListItem> GetGames()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                //Using asEnumerable is garbage code
+                var query = ctx.Games.AsEnumerable().Select(e => new GameListItem
+                {
+                    //General Game properties
+                    GameId = e.GameId,
+                    GameTitle = e.GameTitle,
+                    GameType = e.GameType,
+                    GameDescription = e.GameDescription,
+                    AveragePlaytime = e.AveragePlaytime,
+                    PlayerCount = e.PlayerCount(),
+
+                    //Video Game specific properties
+                    LocalCoop = ((VideoGame)e).LocalCoop,
+                    VideoGameGenre = ((VideoGame)e).VideoGameGenre,
+                    ESRBRating = ((VideoGame)e).ESRBRating,
+                    VGPublisher = ((VideoGame)e).VGPublisher,
+                    Console = ((VideoGame)e).Console,
+                });
+                return query.ToArray();
+            }
+        }
+
+        public bool CreateVideoGame(GameCreate model)
         {
             var entity = new VideoGame()
             {

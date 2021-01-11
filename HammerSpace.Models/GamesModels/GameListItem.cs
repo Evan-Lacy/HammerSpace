@@ -11,6 +11,7 @@ namespace HammerSpace.Models.GamesModels
     [Serializable]
     public class GameListItem
     {
+
         [Key]
         public int GameId { get; set; }
         public string GameTitle { get; set; }

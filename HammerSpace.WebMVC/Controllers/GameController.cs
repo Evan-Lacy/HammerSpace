@@ -12,35 +12,45 @@ namespace HammerSpace.WebMVC.Controllers
     [Authorize]
     public class GameController : Controller
     {
-        private BoardGameService CreateBGService()
+        private GameService CreateGameService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var BGService = new BoardGameService(userId);
-            return BGService;
+            var service = new GameService(userId);
+            return service;
         }
 
         // GET: Game
         public ActionResult Index()
         {
-            var model = new GameListItem[0];
-            return View(model);
-            //var service = CreateBGService();
-            //var model = service.GetGames();
+            //var model = new GameListItem[0];
             //return View(model);
+            var service = CreateGameService();
+            var model = service.GetGames();
+            return View(model);
         }
 
-        //Create a Game via View and return it to the database
-        //GET
-        //public ActionResult Create()
-        //{
-        //    return View(); 
-        //}
-
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            var BGDefault = new GameCreate();
-
-            return View(BGDefault);
+            if (id == 1)
+            {
+                var gameObj = new GameCreate
+                {
+                    GameType = Data.Games.GameType.BoardGame
+                };
+                return View(gameObj);
+            }
+            else if (id == 2)
+            {
+                var gameObj = new GameCreate
+                {
+                    GameType = Data.Games.GameType.VideoGame
+                };
+                return View(gameObj);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         //Create a Partial View for the VideoGame and return it to the database upon creation
@@ -51,8 +61,8 @@ namespace HammerSpace.WebMVC.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var service = CreateBGService();
-            if (service.CreateBoardGame(model))
+            var service = CreateGameService();
+            if (service.CreateGame(model))
             {
                 return RedirectToAction("Index");
             }

@@ -32,28 +32,25 @@ namespace HammerSpace.Data.Games
 
         public GameType GameType { get; set; }
 
-        [Display(Name = "Number of Players")]
-        public string PlayerCount
+        public string PlayerCount()
         {
-            get
+            if (MaxGamePlayers == null)
             {
-                if (MaxGamePlayers == null)
-                {
-                    playerAmt = MinGamePlayers.ToString() + "player";
-                }
-                else
-                {
-                    playerAmt = MinGamePlayers.ToString() + " to " + MaxGamePlayers.ToString() + "players";
-                }
-                return playerAmt;
+                playerAmt = MinGamePlayers.ToString() + " player";
             }
+            else
+            {
+                playerAmt = MinGamePlayers.ToString() + " to " + MaxGamePlayers.ToString() + " players";
+            }
+            return playerAmt;
         }
 
     }
 
+
     public enum GameType
     {
-        [Display(Name="Video Game")]
+        [Display(Name = "Video Game")]
         VideoGame = 1,
         [Display(Name = "Board Game")]
         BoardGame
@@ -62,7 +59,7 @@ namespace HammerSpace.Data.Games
     public enum Genre
     {
         Action = 1,
-        [Display(Name ="Action-adventure")]
+        [Display(Name = "Action-adventure")]
         ActionAdventure,
         Adventure,
         Horror,

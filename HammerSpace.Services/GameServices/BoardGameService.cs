@@ -22,24 +22,27 @@ namespace HammerSpace.Services.GameServices
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Games.Select(e => new GameListItem
+                //Using asEnumerable is garbage code
+                var query = ctx.Games.AsEnumerable().Select(e => new GameListItem
                 {
+                    //General Game properties
                     GameId = e.GameId,
                     GameTitle = e.GameTitle,
                     GameType = e.GameType,
                     GameDescription = e.GameDescription,
                     AveragePlaytime = e.AveragePlaytime,
-                    PlayerCount = e.PlayerCount,
-                    BGPublisher = (BoardGame)e.BGPublisher,
-                    Category = e.Category,
-                    BoardGameGenre = e.BoardGameGenre,
-                    IsCardGame = e.IsCardGame,
-                    IsDiceGame = e.IsDiceGame,
+                    PlayerCount = e.PlayerCount(),
+
+                    //Board Game specific properties
+                    BGPublisher = ((BoardGame)e).BGPublisher,
+                    Category = ((BoardGame)e).Category,
+                    BoardGameGenre = ((BoardGame)e).BoardGameGenre,
+                    IsCardGame = ((BoardGame)e).IsCardGame,
+                    IsDiceGame = ((BoardGame)e).IsDiceGame,
                 });
                 return query.ToArray();
             }
         }
-
 
         public bool CreateBoardGame(GameCreate model)
         {
