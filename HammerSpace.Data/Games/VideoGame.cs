@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HammerSpace.Data
+namespace HammerSpace.Data.Games
 {
     public class VideoGame : Game
     {
         public bool LocalCoop  { get; set; }
-        public Genre Genre { get; set; }
+        public Genre VideoGameGenre { get; set; }
         public ESRBRating ESRBRating { get; set; }
-        public string Publisher { get; set; }
+        public string VGPublisher { get; set; }
         public string Console { get; set; }
     }
 
