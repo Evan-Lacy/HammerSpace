@@ -65,6 +65,10 @@ namespace HammerSpace.WebMVC.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Full Name")]           //Adding a FullName property to the Registration Page to allow the User to input their Name
+        public string FullName { get; set; }    //It will be displayed along with their phone number in the Inventory page of HammerSpace
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -80,9 +84,10 @@ namespace HammerSpace.WebMVC.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [DataType(DataType.PhoneNumber)]
-        [Display(Name = "Phone Number")]        //(317)-555-1234
+        [DataType(DataType.PhoneNumber)]        //Added a phone number to the Account Registration for the User.
+        [Display(Name = "Phone Number")]        //It will be displayed in their personal Inventory in the HammerSpace
         [StringLength(20, ErrorMessage = "The Phone Number must be written as '(xxx)-xxx-xxxx'.", MinimumLength = 10)]  //Either 14 characters for the string or find a way to erase the the parantheses and hyphens
+        [DisplayFormat(DataFormatString = "{0:###-###-####}")]
         public string PhoneNumber { get; set; }
     }
 

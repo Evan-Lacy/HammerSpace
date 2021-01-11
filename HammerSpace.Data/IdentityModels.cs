@@ -17,6 +17,8 @@ namespace HammerSpace.Data
         //[Required]
         //public string PhoneNumber { get; set; }
 
+        public string FullName { get; set; }
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -40,6 +42,7 @@ namespace HammerSpace.Data
         }
 
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Game> Games { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

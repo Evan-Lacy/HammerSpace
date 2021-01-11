@@ -10,6 +10,7 @@ namespace HammerSpace.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "HammerSpace.Data.ApplicationDbContext";
         }
 
         protected override void Seed(HammerSpace.Data.ApplicationDbContext context)
