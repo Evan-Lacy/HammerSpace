@@ -8,9 +8,9 @@ namespace HammerSpace.Data.Games
 {
     public class BoardGame : Game
     {
-        public Genre BoardGameaGenre { get; set; }
+        public Genre BoardGameGenre { get; set; }
         public string Category { get; set; }
-        public string Publisher { get; set; }
+        public string BGPublisher { get; set; }
         public bool IsDiceGame { get; set; }
         public bool IsCardGame { get; set; }
     }

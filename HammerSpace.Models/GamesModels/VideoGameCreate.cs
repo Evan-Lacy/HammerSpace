@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace HammerSpace.Models.GamesModels
 {
+    [Serializable]
     public class VideoGameCreate : GameCreate
     {
         public bool LocalCoop { get; set; }

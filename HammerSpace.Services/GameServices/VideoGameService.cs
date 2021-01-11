@@ -27,7 +27,7 @@ namespace HammerSpace.Services.GameServices
                 LocalCoop = model.LocalCoop,
                 VideoGameGenre = model.VideoGameGenre,
                 ESRBRating = model.ESRBRating,
-                Publisher = model.Publisher,
+                VGPublisher = model.VGPublisher,
                 Console = model.Console
             };
 

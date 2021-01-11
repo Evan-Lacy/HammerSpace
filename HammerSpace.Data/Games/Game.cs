@@ -12,7 +12,7 @@ namespace HammerSpace.Data.Games
     public class Game
     {
         private static string playerAmt;
-
+        public Guid UserId { get; set; }
         [Key]
         public int GameId { get; set; }
 

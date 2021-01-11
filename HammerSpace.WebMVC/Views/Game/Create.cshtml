@@ -11,79 +11,76 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <h4>GameCreate</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.GameTitle, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.GameTitle, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.GameTitle, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>GameCreate</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.GameTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GameTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GameTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GameDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GameDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GameDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AveragePlaytime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AveragePlaytime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AveragePlaytime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MinGamePlayers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MinGamePlayers, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MinGamePlayers, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaxGamePlayers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaxGamePlayers, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaxGamePlayers, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @* Enum selector within the create method to determine the Renderpage *@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GameType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.GameType, "Select a Game Type", new { @class = "form-control" })
+                @* need to do a if statement based on the users choice in this dropdown ^ *@
+
+                @Html.ValidationMessageFor(model => model.GameType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+         @Html.Partial("_BoardGameCreate", Model)
+       
+
+        @*I need to render a partial view based on the type of game selected during the creation of a new game.
+            if they choose a VideoGame, render the creation inputs for the Videogame
+            else/if they choose a BoardGame, render the creation inputs for the boardgame  *@
+
+       
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn">Create</button>
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.GameDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.GameDescription, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.GameDescription, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.AveragePlaytime, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.AveragePlaytime, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.AveragePlaytime, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.MinGamePlayers, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.MinGamePlayers, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MinGamePlayers, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.MaxGamePlayers, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.MaxGamePlayers, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MaxGamePlayers, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    @* Enum selector within the create method to determine the Renderpage *@
-    <div class="form-group">
-        @Html.LabelFor(model => model.GameType, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EnumDropDownListFor(model => model.GameType, "Select a Game Type", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.GameType, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    @*I need to render a partial view based on the type of game selected during the creation of a new game.
-        if they choose a VideoGame, render the creation inputs for the Videogame
-        else/if they choose a BoardGame, render the creation inputs for the boardgame  *@
-    @{ if (Model.GameType == HammerSpace.Data.Games.GameType.VideoGame)
-        {
-            @*Generate view section or whatever for Video Game stuff to create*@
-            @Html.Partial("_VideoGameCreate", Model)
-        }
-        else if(Model.GameType == HammerSpace.Data.Games.GameType.BoardGame)
-        {
-            @Html.Partial("_BoardGameCreate", Model)
-        }
-    }
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 <div>

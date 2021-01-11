@@ -12,7 +12,7 @@ namespace HammerSpace.Data.Games
         public bool LocalCoop  { get; set; }
         public Genre VideoGameGenre { get; set; }
         public ESRBRating ESRBRating { get; set; }
-        public string Publisher { get; set; }
+        public string VGPublisher { get; set; }
         public string Console { get; set; }
     }
 

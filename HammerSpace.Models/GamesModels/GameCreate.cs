@@ -8,20 +8,45 @@ using System.Threading.Tasks;
 
 namespace HammerSpace.Models.GamesModels
 {
+    [Serializable]
     public class GameCreate
     {
-        [Required]
+        [Key]
+        public int GameId { get; set; }
         public string GameTitle { get; set; }
-        [Required]
         public string GameDescription { get; set; }
-        [Required]
         public double AveragePlaytime { get; set; }
-        [Required]
         public int MinGamePlayers { get; set; }
         public int? MaxGamePlayers { get; set; }
 
-        //Bool property here to have a check later in the view to generate the necessary field for a video game or board game creation screen
+        //Enum property here to have a check later in the view to generate the necessary field for a video game or board game creation screen
         public GameType GameType { get; set; }
 
+
+        //BoardGame section
+        public Genre BoardGameGenre { get; set; }
+        public string Category { get; set; }
+        public string BGPublisher { get; set; }
+        public bool IsDiceGame { get; set; } 
+        public bool IsCardGame { get; set; }
+
+        //Constructor that sets the game type to BoardGame
+        //public GameCreate()
+        //{
+        //    GameType = GameType.BoardGame;
+        //}
+
+        //VideoGame Section
+        public bool LocalCoop { get; set; }
+        public Genre VideoGameGenre { get; set; }
+        public ESRBRating ESRBRating { get; set; }
+        public string VGPublisher { get; set; }
+        public string Console { get; set; }
+
+        //Constructor that sets the game type to VideoGame
+        //public GameCreate()
+        //{
+        //    GameType = GameType.VideoGame;
+        //}
     }
 }

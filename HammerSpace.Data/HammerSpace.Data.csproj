@@ -78,6 +78,18 @@
     <Compile Include="Migrations\202101062215325_Genre-namechanges.Designer.cs">
       <DependentUpon>202101062215325_Genre-namechanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101072056408_BoardGame-propertynameChange.cs" />
+    <Compile Include="Migrations\202101072056408_BoardGame-propertynameChange.Designer.cs">
+      <DependentUpon>202101072056408_BoardGame-propertynameChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101081646355_Testing.cs" />
+    <Compile Include="Migrations\202101081646355_Testing.Designer.cs">
+      <DependentUpon>202101081646355_Testing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101081732301_Testing2.cs" />
+    <Compile Include="Migrations\202101081732301_Testing2.Designer.cs">
+      <DependentUpon>202101081732301_Testing2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OwnedGames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +114,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101062215325_Genre-namechanges.resx">
       <DependentUpon>202101062215325_Genre-namechanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101072056408_BoardGame-propertynameChange.resx">
+      <DependentUpon>202101072056408_BoardGame-propertynameChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101081646355_Testing.resx">
+      <DependentUpon>202101081646355_Testing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101081732301_Testing2.resx">
+      <DependentUpon>202101081732301_Testing2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
