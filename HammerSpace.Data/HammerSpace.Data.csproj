@@ -89,6 +89,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202101061706480_initial-movie-migration.resx">
       <DependentUpon>202101061706480_initial-movie-migration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012162110262_InitialCreate.resx">
       <DependentUpon>202012162110262_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
