@@ -88,6 +88,7 @@ namespace HammerSpace.WebMVC.Controllers
                 new GameEdit
                 {
                     GameId = deet.GameId,
+                    GameType = deet.GameType,
                     GameTitle = deet.GameTitle,
                     GameDescription = deet.GameDescription,
                     AveragePlaytime = deet.AveragePlaytime,

@@ -119,7 +119,7 @@ namespace HammerSpace.Services.GameServices
 
         public static string GetEnumDescription(int enumNum)
         {
-            if(enumNum == 1)
+            if (enumNum == 1)
             {
                 return "Video Game";
             }
@@ -137,42 +137,44 @@ namespace HammerSpace.Services.GameServices
                     ctx
                     .Games
                     .Single(e => e.GameId == id);
+
+                var detail = new GameDetails();
+
+                detail.GameId = entity.GameId;
+                detail.GameType = entity.GameType;
+                detail.GameTypeString = GetEnumDescription(Convert.ToInt32(entity.GameType));
+                detail.GameTitle = entity.GameTitle;
+                detail.GameDescription = entity.GameDescription;
+                detail.AveragePlaytime = entity.AveragePlaytime;
+                detail.MinGamePlayers = entity.MinGamePlayers;
+                detail.MaxGamePlayers = entity.MaxGamePlayers;
+                detail.PlayerCount = entity.PlayerCount();
+
+                //If the object has the gametype of BoardGame, do these details
                 if (entity.GameType == GameType.BoardGame)
                 {
-                    return new GameDetails
-                    {
-                        GameId = entity.GameId,
-                        GameType = entity.GameType,
-                        GameTypeString = GetEnumDescription(Convert.ToInt32(entity.GameType)),
-                        GameTitle = entity.GameTitle,
-                        GameDescription = entity.GameDescription,
-                        AveragePlaytime = entity.AveragePlaytime,
-                        PlayerCount = entity.PlayerCount(),
-                        BoardGameGenre = ((BoardGame)entity).BoardGameGenre,
-                        Category = ((BoardGame)entity).Category,
-                        BGPublisher = ((BoardGame)entity).BGPublisher,
-                        IsCardGame = ((BoardGame)entity).IsCardGame,
-                        IsDiceGame = ((BoardGame)entity).IsDiceGame
-                    };
+
+                    detail.BoardGameGenre = ((BoardGame)entity).BoardGameGenre;
+                    detail.Category = ((BoardGame)entity).Category;
+                    detail.BGPublisher = ((BoardGame)entity).BGPublisher;
+                    detail.IsCardGame = ((BoardGame)entity).IsCardGame;
+                    detail.IsDiceGame = ((BoardGame)entity).IsDiceGame;
+
+
                 }
-                else 
+                else if (entity.GameType == GameType.VideoGame)
                 {
-                    return new GameDetails
-                    {
-                        GameId = entity.GameId,
-                        GameType = entity.GameType,
-                        GameTitle = entity.GameTitle,
-                        GameDescription = entity.GameDescription,
-                        AveragePlaytime = entity.AveragePlaytime,
-                        PlayerCount = entity.PlayerCount(),
-                        LocalCoop = ((VideoGame)entity).LocalCoop,
-                        VideoGameGenre = ((VideoGame)entity).VideoGameGenre,
-                        ESRBRating = ((VideoGame)entity).ESRBRating,
-                        VGPublisher = ((VideoGame)entity).VGPublisher,
-                        Console = ((VideoGame)entity).Console
-                    };
+                    detail.LocalCoop = ((VideoGame)entity).LocalCoop;
+                    detail.VideoGameGenre = ((VideoGame)entity).VideoGameGenre;
+                    detail.ESRBRating = ((VideoGame)entity).ESRBRating;
+                    detail.VGPublisher = ((VideoGame)entity).VGPublisher;
+                    detail.Console = ((VideoGame)entity).Console;
                 }
+
+
+                return detail;
             }
+
         }
 
         public bool UpdateGame(GameEdit model)
@@ -188,7 +190,7 @@ namespace HammerSpace.Services.GameServices
                 entity.MinGamePlayers = model.MinGamePlayers;
                 entity.MaxGamePlayers = model.MaxGamePlayers;
 
-                if(entity.GameType == GameType.BoardGame)
+                if (model.GameType == GameType.BoardGame)
                 {
                     ((BoardGame)entity).BoardGameGenre = model.BoardGameGenre;
                     ((BoardGame)entity).Category = model.Category;
@@ -196,7 +198,7 @@ namespace HammerSpace.Services.GameServices
                     ((BoardGame)entity).IsDiceGame = model.IsDiceGame;
                     ((BoardGame)entity).IsCardGame = model.IsCardGame;
                 }
-                else
+                else if (model.GameType == GameType.VideoGame)
                 {
                     ((VideoGame)entity).VideoGameGenre = model.VideoGameGenre;
                     ((VideoGame)entity).LocalCoop = model.LocalCoop;

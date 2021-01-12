@@ -16,7 +16,7 @@ namespace HammerSpace.Models.GamesModels
         public string GameTitle { get; set; }
         [Display(Name = "Game Description")]
         public string GameDescription { get; set; }
-        [Display(Name = "Avg Playtime Length")]
+        [Display(Name = "Avg Playtime Length (in hours)")]
         public double AveragePlaytime { get; set; }
         [Display(Name = "Min. # of Players")]
         public int MinGamePlayers { get; set; }
