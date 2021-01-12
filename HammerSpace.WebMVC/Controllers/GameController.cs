@@ -78,55 +78,87 @@ namespace HammerSpace.WebMVC.Controllers
             return View(model);
         }
 
-        //Create a Partial view for the Board game and return it to the database upon creation
-        //[HttpPost]
-        ////[ValidateAntiForgeryToken]
-        //public ActionResult Create(GameCreate model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
+        //Edit the Game details, hopefully only getting the specific game requested
+        public ActionResult Edit(int id)
+        {
+            var service = CreateGameService();
+            var deet = service.GetGameById(id);
 
-        //    if (model.GameType == Data.Games.GameType.VideoGame)
-        //    {
-        //        var service = new VideoGameService();
+            var model =
+                new GameEdit
+                {
+                    GameId = deet.GameId,
+                    GameTitle = deet.GameTitle,
+                    GameDescription = deet.GameDescription,
+                    AveragePlaytime = deet.AveragePlaytime,
+                    MinGamePlayers = deet.MinGamePlayers,
+                    MaxGamePlayers = deet.MaxGamePlayers,
 
-        //        if (service.CreateVideoGame((VideoGameCreate)model))
-        //        {
-        //            return RedirectToAction("Index");
-        //        }
-        //    }
-        //    else if (model.GameType == Data.Games.GameType.BoardGame)
-        //    {
-        //        var service = CreateBGService();
-        //        //var cretin = new BoardGameCreate()
-        //        //{
-        //        //    //General Game properties
-        //        //    GameTitle = model.GameTitle,
-        //        //    GameDescription = model.GameDescription,
-        //        //    AveragePlaytime = model.AveragePlaytime,
-        //        //    MinGamePlayers = model.MinGamePlayers,
-        //        //    MaxGamePlayers = model.MaxGamePlayers,
-        //        //    GameType = model.GameType,
+                    //Try one = match everything?
+                    //Matching Nulls should match in the background as the data table is filled with 
+                    //them to store the blank items from the other kind of Game
 
-        //        //    //Board Game specific properties
-        //        //    BoardGameGenre = model.BoardGameGenre,
-        //        //    Category = model.Category,
-        //        //    Publisher = model.Publisher,
-        //        //    IsDiceGame = model.IsDiceGame,
-        //        //    IsCardGame = model.IsCardGame
-        //        //};
+                    //Board Game
+                    BoardGameGenre = deet.BoardGameGenre,
+                    Category = deet.Category,
+                    BGPublisher = deet.BGPublisher,
+                    IsCardGame = deet.IsCardGame,
+                    IsDiceGame = deet.IsDiceGame,
 
-        //        if (service.CreateBoardGame((BoardGameCreate)model))
-        //        {
-        //            return RedirectToAction("Index");
-        //        }
-        //    }
+                    //Video Game
+                    VideoGameGenre = deet.VideoGameGenre,
+                    ESRBRating = deet.ESRBRating,
+                    LocalCoop = deet.LocalCoop,
+                    VGPublisher = deet.VGPublisher,
+                    Console = deet.Console
+                };
+            return View(model);
+        }
 
-        //    return View(model);
-        //}
+        [HttpPost]
+        public ActionResult Edit(int id, GameEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
 
+            if(model.GameId != id)
+            {
+                ModelState.AddModelError("", "There is a mismatch with the Game Id");
+                return View(model);
+            }
 
+            var service = CreateGameService();
+
+            if (service.UpdateGame(model))
+            {
+                TempData["SaveResult"] = "Your Game was updated! Congratz!";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your game could not be updated. \n You have lost The Game");
+            return View(model);
+        }
+
+        //[ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateGameService();
+
+            var model = service.GetGameById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteMovie(int id)
+        {
+            var service = CreateGameService();
+
+            service.DeleteGame(id);
+
+            TempData["SaveResult"] = "Your game was lost to the sands of time.";
+            return RedirectToAction("Index");
+        }
     }
 }

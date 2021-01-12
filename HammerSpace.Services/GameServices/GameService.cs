@@ -63,7 +63,6 @@ namespace HammerSpace.Services.GameServices
             }
         }
 
-
         public bool CreateGame(GameCreate model)
         {
             var entity = new Game();
@@ -173,6 +172,54 @@ namespace HammerSpace.Services.GameServices
                         Console = ((VideoGame)entity).Console
                     };
                 }
+            }
+        }
+
+        public bool UpdateGame(GameEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Games.Single(e => e.GameId == model.GameId);
+                entity.GameId = model.GameId;
+                entity.GameType = model.GameType;
+                entity.GameTitle = model.GameTitle;
+                entity.GameDescription = model.GameDescription;
+                entity.AveragePlaytime = model.AveragePlaytime;
+                entity.MinGamePlayers = model.MinGamePlayers;
+                entity.MaxGamePlayers = model.MaxGamePlayers;
+
+                if(entity.GameType == GameType.BoardGame)
+                {
+                    ((BoardGame)entity).BoardGameGenre = model.BoardGameGenre;
+                    ((BoardGame)entity).Category = model.Category;
+                    ((BoardGame)entity).BGPublisher = model.BGPublisher;
+                    ((BoardGame)entity).IsDiceGame = model.IsDiceGame;
+                    ((BoardGame)entity).IsCardGame = model.IsCardGame;
+                }
+                else
+                {
+                    ((VideoGame)entity).VideoGameGenre = model.VideoGameGenre;
+                    ((VideoGame)entity).LocalCoop = model.LocalCoop;
+                    ((VideoGame)entity).VGPublisher = model.VGPublisher;
+                    ((VideoGame)entity).Console = model.Console;
+                    ((VideoGame)entity).ESRBRating = model.ESRBRating;
+                }
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteGame(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Games
+                    .Single(e => e.GameId == id);
+
+                ctx.Games.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
