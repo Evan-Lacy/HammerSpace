@@ -50,16 +50,16 @@ namespace HammerSpace.Data.Games
 
     public enum GameType
     {
-        [Display(Name = "Video Game")]
+        [Description("Video Game")]
         VideoGame = 1,
-        [Display(Name = "Board Game")]
+        [Description("Board Game")]
         BoardGame
     }
 
     public enum Genre
     {
         Action = 1,
-        [Display(Name = "Action-adventure")]
+        [Display(Name ="Action-adventure")]
         ActionAdventure,
         Adventure,
         Horror,
@@ -68,7 +68,7 @@ namespace HammerSpace.Data.Games
         MMO,
         Party,
         Puzzle,
-        [Display(Name = "Role-playing")]
+        [Display(Name ="Role-playing")]
         RolePlaying,
         Sandbox,
         Simulation,

@@ -55,6 +55,8 @@
         </div>
     </div>
 
+    @Html.HiddenFor(model => model.GameType)
+
     @*I need to render a partial view based on the type of game selected during the creation of a new game.
         if they choose a VideoGame, render the creation inputs for the Videogame
         else/if they choose a BoardGame, render the creation inputs for the boardgame  *@
