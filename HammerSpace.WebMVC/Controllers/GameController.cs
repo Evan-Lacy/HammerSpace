@@ -69,6 +69,15 @@ namespace HammerSpace.WebMVC.Controllers
             return View(model);
         }
 
+        //Get all Details for a Game
+        public ActionResult Details(int id)
+        {
+            var service = CreateGameService();
+            var model = service.GetGameById(id);
+
+            return View(model);
+        }
+
         //Create a Partial view for the Board game and return it to the database upon creation
         //[HttpPost]
         ////[ValidateAntiForgeryToken]

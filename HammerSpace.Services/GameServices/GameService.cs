@@ -117,5 +117,63 @@ namespace HammerSpace.Services.GameServices
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public static string GetEnumDescription(int enumNum)
+        {
+            if(enumNum == 1)
+            {
+                return "Video Game";
+            }
+            else
+            {
+                return "Board Game";
+            }
+        }
+
+        public GameDetails GetGameById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Games
+                    .Single(e => e.GameId == id);
+                if (entity.GameType == GameType.BoardGame)
+                {
+                    return new GameDetails
+                    {
+                        GameId = entity.GameId,
+                        GameType = entity.GameType,
+                        GameTypeString = GetEnumDescription(Convert.ToInt32(entity.GameType)),
+                        GameTitle = entity.GameTitle,
+                        GameDescription = entity.GameDescription,
+                        AveragePlaytime = entity.AveragePlaytime,
+                        PlayerCount = entity.PlayerCount(),
+                        BoardGameGenre = ((BoardGame)entity).BoardGameGenre,
+                        Category = ((BoardGame)entity).Category,
+                        BGPublisher = ((BoardGame)entity).BGPublisher,
+                        IsCardGame = ((BoardGame)entity).IsCardGame,
+                        IsDiceGame = ((BoardGame)entity).IsDiceGame
+                    };
+                }
+                else 
+                {
+                    return new GameDetails
+                    {
+                        GameId = entity.GameId,
+                        GameType = entity.GameType,
+                        GameTitle = entity.GameTitle,
+                        GameDescription = entity.GameDescription,
+                        AveragePlaytime = entity.AveragePlaytime,
+                        PlayerCount = entity.PlayerCount(),
+                        LocalCoop = ((VideoGame)entity).LocalCoop,
+                        VideoGameGenre = ((VideoGame)entity).VideoGameGenre,
+                        ESRBRating = ((VideoGame)entity).ESRBRating,
+                        VGPublisher = ((VideoGame)entity).VGPublisher,
+                        Console = ((VideoGame)entity).Console
+                    };
+                }
+            }
+        }
     }
 }
