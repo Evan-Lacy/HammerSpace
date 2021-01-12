@@ -55,6 +55,8 @@ namespace HammerSpace.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
+
+        //public System.Data.Entity.DbSet<HammerSpace.Models.GamesModels.GameDetails> GameDetails { get; set; }
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
