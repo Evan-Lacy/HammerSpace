@@ -23,3 +23,19 @@ textarea {
     max-width: 280px;
 }
 
+.navbar{
+    background-color: black;
+}
+
+.footer{
+    background-color: black;
+    color: white;
+}
+
+.logoIcon{
+    max-width: 50px;
+}
+
+body {
+    background-color: #5514ED;
+}

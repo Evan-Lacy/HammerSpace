@@ -3,20 +3,19 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>HammerSpace</h1>
+    <p class="lead">HammerSpace is a brilliant inventory management system for you, the User, so you can maintain a digital collection of all your nerdy items, like video games and movies.</p>
+    <p><a href="https://github.com/Evan-Lacy/HammerSpace" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            HammerSpace works by naviagting to the Movie or Game database and adding the items therein to your personal inventory. This allows you to be able to review all the items you personally own and check them digitally while out and about. Click below to navigate to one of our databases!
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <a class="btn btn-default elements" href="@Url.Action("Index", "Game")">Games &raquo;</a>
+        <a class="btn btn-default elements" href="@Url.Action("Index", "Movie")">Movies &raquo;</a>
     </div>
     <div class="col-md-4">
         <h2>Get more libraries</h2>

@@ -16,6 +16,8 @@ namespace HammerSpace.Data
         [Required]
         public int OwnerId { get; set; }
 
+        //CRUD methods for the users inventory
+
         public virtual List<OwnedGames> OwnedGames { get; set; } = new List<OwnedGames>();
     }
 }
