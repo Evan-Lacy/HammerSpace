@@ -61,7 +61,6 @@
     <Compile Include="MovieModels\MovieDetail.cs" />
     <Compile Include="MovieModels\MovieEdit.cs" />
     <Compile Include="MovieModels\MovieListItem.cs" />
-    <Compile Include="GamesModels\BoardGameListItem.cs" />
     <Compile Include="GamesModels\GameListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

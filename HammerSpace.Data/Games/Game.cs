@@ -38,6 +38,10 @@ namespace HammerSpace.Data.Games
             {
                 playerAmt = MinGamePlayers.ToString() + " player";
             }
+            else if( MinGamePlayers == MaxGamePlayers)
+            {
+                playerAmt = MinGamePlayers.ToString() + " players";
+            }
             else
             {
                 playerAmt = MinGamePlayers.ToString() + " to " + MaxGamePlayers.ToString() + " players";

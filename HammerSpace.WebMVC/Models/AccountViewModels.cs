@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HammerSpace.Data;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace HammerSpace.WebMVC.Models
@@ -89,6 +90,7 @@ namespace HammerSpace.WebMVC.Models
         [StringLength(20, ErrorMessage = "The Phone Number must be written as '(xxx)-xxx-xxxx'.", MinimumLength = 10)]  //Either 14 characters for the string or find a way to erase the the parantheses and hyphens
         [DisplayFormat(DataFormatString = "{0:###-###-####}")]
         public string PhoneNumber { get; set; }
+
     }
 
     public class ResetPasswordViewModel

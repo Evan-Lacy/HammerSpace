@@ -13,7 +13,7 @@
         <div class="container">
             <div class="navbar-header">
                 <a href="@Url.Action("Index", "Home")" title="Home" class="navbar-brand">
-                    <img src="~/Content/HammerSpace-Logo.png" class="logoIcon align-middle"/>HammerSpace
+                    <img src="~/Content/HammerSpace-Logo.png" class="logoIcon align-middle" />HammerSpace
                 </a>
                 <button type="button" class="navbar-toggle float-left" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -24,14 +24,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav justify-content-end">
-                  <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                  <li>@Html.ActionLink("About", "About", "Home")</li>
-                  @*Shows the Movies link in the Navbar only if logged in*@
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    @*Shows the Movies link in the Navbar only if logged in*@
                     @if (User.Identity.IsAuthenticated)
-                    {  
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Games", "Index", "Game")</li>
-                    <li>@Html.ActionLink("Movies", "Index", "Movie")</li>
+                    {
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Games", "Index", "Game")</li>
+                        <li>@Html.ActionLink("Movies", "Index", "Movie")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -41,18 +41,23 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - HammerSpace</p>
-        </footer>
     </div>
+    <section id="footer">
+        <div class="container">
+            <div class="row justify-content-center">
+                <img src="~/Content/" style="height:117px; width:117px;">
+                <div class="col">
+                    <p style="padding-top: 3em">&copy; @DateTime.Now.Year - HammerSpace</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    @*<footer class="align-content-center">
+        <p>&copy; @DateTime.Now.Year - HammerSpace</p>
+    </footer>*@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
-<style>
-    .navbar {
-        color: purple;
-    }
-</style>

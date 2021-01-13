@@ -13,10 +13,14 @@ namespace HammerSpace.Data
         [Key]
         public int InventoryId { get; set; }
 
+        //If GUid matches logged in Guid, display that user's inventory
         [Required]
-        public int OwnerId { get; set; }
+        public Guid OwnerId { get; set; }
 
-        //CRUD methods for the users inventory
+        //CRD methods for the users inventory
+        //Create - Add Game or Movie to Inventory
+        //Read - See all Owned Games and Movies
+        //Delete - Remove items from the Owned lists
 
         public virtual List<OwnedMovies> OwnedMovies { get; set; } = new List<OwnedMovies>();
         public virtual List<OwnedGames> OwnedGames { get; set; } = new List<OwnedGames>();

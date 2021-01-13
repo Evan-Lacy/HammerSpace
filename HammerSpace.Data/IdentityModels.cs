@@ -20,6 +20,8 @@ namespace HammerSpace.Data
 
         public string FullName { get; set; }
 
+        public Inventory Inventory { get; set; }
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -44,6 +46,7 @@ namespace HammerSpace.Data
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Game> Games { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
