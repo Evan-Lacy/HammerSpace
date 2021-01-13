@@ -1,6 +1,7 @@
 ﻿using HammerSpace.Data.Games;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace HammerSpace.Data
     {
 
         //join table to connect all the owned games to a User's personal Inventory within HammerSpace
+        [Key]
         public int OwnedGameId { get; set; }
 
         [ForeignKey(nameof(Game))]

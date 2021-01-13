@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: rgb(50,0,64);
+    background: linear-gradient(180deg, rgba(50,0,64,1) 0%, rgba(225,118,255,1) 50%, rgba(236,216,255,1) 100%);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -25,11 +27,14 @@ textarea {
 
 .navbar{
     background-color: black;
+    width: 100%;
 }
 
-.footer{
+#footer{
     background-color: black;
     color: white;
+    width: 100%;
+    text-align: center;
 }
 
 .logoIcon{
@@ -44,9 +49,4 @@ table{
     background-color: white;
     color: black;
     border: 5px solid groove
-}
-
-body {
-    background: rgb(50,0,64);
-    background: linear-gradient(180deg, rgba(50,0,64,1) 0%, rgba(225,118,255,1) 50%, rgba(236,216,255,1) 100%);
 }

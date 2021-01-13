@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace HammerSpace.Data
     {
 
         //join table to connect all the owned Movies to a User's personal Inventory within HammerSpace
+        [Key]
         public int OwnedMovieId { get; set; }
 
         [ForeignKey(nameof(Movie))]
