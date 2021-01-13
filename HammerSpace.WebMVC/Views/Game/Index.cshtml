@@ -12,175 +12,188 @@
     @Html.ActionLink("Create Video Game", "Create", new { id = 2 })
 </p>
 @*BoardGame Table*@
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GameType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GameTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GameDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AveragePlaytime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PlayerCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BoardGameGenre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BGPublisher)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsDiceGame)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsCardGame)
-        </th>
+@*Pop up message to display if the movie was created*@
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
 
-    </tr>
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<div class="tableWrapper">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GameType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AveragePlaytime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BoardGameGenre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BGPublisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDiceGame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCardGame)
+            </th>
 
-    @foreach (var item in Model)
-    {
-        if (item.GameType == HammerSpace.Data.Games.GameType.BoardGame)
+        </tr>
+
+        @foreach (var item in Model)
         {
+            if (item.GameType == HammerSpace.Data.Games.GameType.BoardGame)
+            {
 
-            <tr>
-                <td>
-                    @*Refactor later to clean up and find a way for helper method*@
-                    @*@Html.DisplayFor(modelItem => item.GameType)*@
-                    @if (item.GameType == GameType.BoardGame)
-                    {
-                        <p>Board Game</p>
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GameTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GameDescription)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AveragePlaytime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PlayerCount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BoardGameGenre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BGPublisher)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsDiceGame)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsCardGame)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.GameId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.GameId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.GameId })
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @*Refactor later to clean up and find a way for helper method*@
+                        @*@Html.DisplayFor(modelItem => item.GameType)*@
+                        @if (item.GameType == GameType.BoardGame)
+                        {
+                            <p>Board Game</p>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AveragePlaytime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlayerCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BoardGameGenre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BGPublisher)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsDiceGame)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsCardGame)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.GameId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.GameId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.GameId })
+                    </td>
+                </tr>
+            }
         }
-    }
-</table>
+    </table>
 
 
 
-@*VideoGame Table*@
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GameType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GameTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GameDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AveragePlaytime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PlayerCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VideoGameGenre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocalCoop)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VGPublisher)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ESRBRating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Console)
-        </th>
-    </tr>
+    @*VideoGame Table*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GameType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AveragePlaytime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VideoGameGenre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocalCoop)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VGPublisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ESRBRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Console)
+            </th>
+        </tr>
 
-    @foreach (var item in Model)
-    {
-        if (item.GameType == HammerSpace.Data.Games.GameType.VideoGame)
+        @foreach (var item in Model)
         {
-<tr>
-    <td>
-        @*@Html.DisplayFor(modelItem => item.GameType)*@
-        @if (item.GameType == GameType.VideoGame)
-        {
-            <p>Video Game</p>
-        }
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.GameTitle)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.GameDescription)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.AveragePlaytime)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PlayerCount)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.VideoGameGenre)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LocalCoop)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.VGPublisher)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ESRBRating)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Console)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.GameId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.GameId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.GameId })
-    </td>
-</tr>
-        }
+            if (item.GameType == HammerSpace.Data.Games.GameType.VideoGame)
+            {
+                <tr>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.GameType)*@
+                        @if (item.GameType == GameType.VideoGame)
+                        {
+                            <p>Video Game</p>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AveragePlaytime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlayerCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VideoGameGenre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocalCoop)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VGPublisher)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ESRBRating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Console)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.GameId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.GameId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.GameId })
+                    </td>
+                </tr>
+            }
 
-    }
-</table>
+        }
+    </table>
+</div>
