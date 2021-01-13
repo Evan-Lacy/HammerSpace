@@ -9,38 +9,44 @@ using System.Threading.Tasks;
 namespace HammerSpace.Models.GamesModels
 {
     [Serializable]
-    public class GameListItem
+    public class GameCreate
     {
-
         [Key]
         public int GameId { get; set; }
         public string GameTitle { get; set; }
-        [Display(Name = "Game Description")]
         public string GameDescription { get; set; }
-        [Display(Name = "Avg Playtime Length")]
         public double AveragePlaytime { get; set; }
-        [Display(Name ="Player Count")]
-        public string PlayerCount { get; set; }
+        public int MinGamePlayers { get; set; }
+        public int? MaxGamePlayers { get; set; }
 
-        //Enum type to check later with LINQ methods to then display appropriate information within GameService
+        //Enum property here to have a check later in the view to generate the necessary field for a video game or board game creation screen
         public GameType GameType { get; set; }
 
 
-        //Board Game specific properties
-        [Display(Name ="Board Game Genre")]
+        //BoardGame section
         public Genre BoardGameGenre { get; set; }
         public string Category { get; set; }
         public string BGPublisher { get; set; }
-        public bool IsDiceGame { get; set; }
+        public bool IsDiceGame { get; set; } 
         public bool IsCardGame { get; set; }
 
+        //Constructor that sets the game type to BoardGame
+        //public GameCreate()
+        //{
+        //    GameType = GameType.BoardGame;
+        //}
 
-        //Video Game specific properties
+        //VideoGame Section
         public bool LocalCoop { get; set; }
-        [Display(Name = "Video Game Genre")]
         public Genre VideoGameGenre { get; set; }
         public ESRBRating ESRBRating { get; set; }
         public string VGPublisher { get; set; }
         public string Console { get; set; }
+
+        //Constructor that sets the game type to VideoGame
+        //public GameCreate()
+        //{
+        //    GameType = GameType.VideoGame;
+        //}
     }
 }

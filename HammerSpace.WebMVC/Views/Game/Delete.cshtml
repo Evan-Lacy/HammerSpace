@@ -1,0 +1,178 @@
+﻿@model HammerSpace.Models.GamesModels.GameDetails
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GameDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AveragePlaytime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AveragePlaytime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerCount)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.MinGamePlayers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinGamePlayers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxGamePlayers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxGamePlayers)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameType)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.GameTypeString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameTypeString)
+        </dd>*@
+
+        @{ if (Model.GameType == HammerSpace.Data.Games.GameType.BoardGame)
+            {
+
+                @*Board Game specific info*@
+                <dt>
+                    @Html.DisplayNameFor(model => model.BoardGameGenre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BoardGameGenre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BGPublisher)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BGPublisher)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsDiceGame)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsDiceGame)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsCardGame)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsCardGame)
+                </dd>
+            }
+
+            else if (Model.GameType == HammerSpace.Data.Games.GameType.VideoGame)
+            {
+                @*Video Game specific info*@
+                <dt>
+                    @Html.DisplayNameFor(model => model.LocalCoop)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LocalCoop)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.VideoGameGenre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.VideoGameGenre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ESRBRating)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ESRBRating)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.VGPublisher)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.VGPublisher)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Console)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Console)
+                </dd>
+            }
+        }
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -12,22 +12,26 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <a href="@Url.Action("Index", "Home")" title="Home" class="navbar-brand">
+                    <img src="~/Content/HammerSpace-Logo.png" class="logoIcon align-middle"/>HammerSpace
+                </a>
+                <button type="button" class="navbar-toggle float-left" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("HammerSpace", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("HammerSpace", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    @*Shows the Movies link in the Navbar only if logged in*@
+                <ul class="nav navbar-nav justify-content-end">
+                  <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                  <li>@Html.ActionLink("About", "About", "Home")</li>
+                  @*Shows the Movies link in the Navbar only if logged in*@
                     @if (User.Identity.IsAuthenticated)
-                    {
-                        <li>@Html.ActionLink("Movies", "Index", "Movie")</li>
+                    {  
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Games", "Index", "Game")</li>
+                    <li>@Html.ActionLink("Movies", "Index", "Movie")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -38,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - HammerSpace</p>
         </footer>
     </div>
 
@@ -47,3 +51,8 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<style>
+    .navbar {
+        color: purple;
+    }
+</style>

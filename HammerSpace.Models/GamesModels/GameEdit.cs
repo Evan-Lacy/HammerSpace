@@ -8,26 +8,27 @@ using System.Threading.Tasks;
 
 namespace HammerSpace.Models.GamesModels
 {
-    [Serializable]
-    public class GameListItem
+    public class GameEdit
     {
-
         [Key]
         public int GameId { get; set; }
+        [Display(Name ="Game Title")]
         public string GameTitle { get; set; }
         [Display(Name = "Game Description")]
         public string GameDescription { get; set; }
-        [Display(Name = "Avg Playtime Length")]
+        [Display(Name = "Avg Playtime Length (in hours)")]
         public double AveragePlaytime { get; set; }
-        [Display(Name ="Player Count")]
-        public string PlayerCount { get; set; }
+        [Display(Name = "Min. # of Players")]
+        public int MinGamePlayers { get; set; }
+        [Display(Name = "Max # of Players")]
+        public int? MaxGamePlayers { get; set; }
 
-        //Enum type to check later with LINQ methods to then display appropriate information within GameService
+        ////Enum type to check later with LINQ methods to then display appropriate information within GameService
         public GameType GameType { get; set; }
 
 
         //Board Game specific properties
-        [Display(Name ="Board Game Genre")]
+        [Display(Name = "Board Game Genre")]
         public Genre BoardGameGenre { get; set; }
         public string Category { get; set; }
         public string BGPublisher { get; set; }

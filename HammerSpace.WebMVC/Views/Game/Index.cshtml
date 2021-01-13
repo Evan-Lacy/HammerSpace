@@ -1,0 +1,186 @@
+﻿@model IEnumerable<HammerSpace.Models.GamesModels.GameListItem>
+@using HammerSpace.Data.Games;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create Board Game", "Create", new { id = 1 })
+    @Html.ActionLink("Create Video Game", "Create", new { id = 2 })
+</p>
+@*BoardGame Table*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AveragePlaytime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoardGameGenre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BGPublisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDiceGame)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCardGame)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.GameType == HammerSpace.Data.Games.GameType.BoardGame)
+        {
+
+            <tr>
+                <td>
+                    @*Refactor later to clean up and find a way for helper method*@
+                    @*@Html.DisplayFor(modelItem => item.GameType)*@
+                    @if (item.GameType == GameType.BoardGame)
+                    {
+                        <p>Board Game</p>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GameTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GameDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AveragePlaytime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayerCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoardGameGenre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BGPublisher)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDiceGame)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsCardGame)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.GameId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.GameId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.GameId })
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+
+
+@*VideoGame Table*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AveragePlaytime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoGameGenre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalCoop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VGPublisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESRBRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Console)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.GameType == HammerSpace.Data.Games.GameType.VideoGame)
+        {
+<tr>
+    <td>
+        @*@Html.DisplayFor(modelItem => item.GameType)*@
+        @if (item.GameType == GameType.VideoGame)
+        {
+            <p>Video Game</p>
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GameTitle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GameDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AveragePlaytime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PlayerCount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VideoGameGenre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LocalCoop)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VGPublisher)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ESRBRating)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Console)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.GameId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.GameId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.GameId })
+    </td>
+</tr>
+        }
+
+    }
+</table>

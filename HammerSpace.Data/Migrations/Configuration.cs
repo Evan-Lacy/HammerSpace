@@ -27,6 +27,7 @@ namespace HammerSpace.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            //context.SaveChanges();
         }
     }
 }

@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HammerSpace.Data
+namespace HammerSpace.Data.Games
 {
     public class Game
     {
         private static string playerAmt;
-
+        public Guid UserId { get; set; }
         [Key]
         public int GameId { get; set; }
 
@@ -30,29 +30,36 @@ namespace HammerSpace.Data
         public int MinGamePlayers { get; set; }
         public int? MaxGamePlayers { get; set; }
 
-        [Display(Name = "Number of Players")]
-        public string PlayerCount
+        public GameType GameType { get; set; }
+
+        public string PlayerCount()
         {
-            get
+            if (MaxGamePlayers == null)
             {
-                if (MaxGamePlayers == null)
-                {
-                    playerAmt = MinGamePlayers.ToString() + "player";
-                }
-                else
-                {
-                    playerAmt = MinGamePlayers.ToString() + " to " + MaxGamePlayers.ToString() + "players";
-                }
-                return playerAmt;
+                playerAmt = MinGamePlayers.ToString() + " player";
             }
+            else
+            {
+                playerAmt = MinGamePlayers.ToString() + " to " + MaxGamePlayers.ToString() + " players";
+            }
+            return playerAmt;
         }
 
+    }
+
+
+    public enum GameType
+    {
+        [Description("Video Game")]
+        VideoGame = 1,
+        [Description("Board Game")]
+        BoardGame
     }
 
     public enum Genre
     {
         Action = 1,
-        [Description("Action-adventure")]
+        [Display(Name ="Action-adventure")]
         ActionAdventure,
         Adventure,
         Horror,
@@ -61,7 +68,7 @@ namespace HammerSpace.Data
         MMO,
         Party,
         Puzzle,
-        [Description("Role-playing")]
+        [Display(Name ="Role-playing")]
         RolePlaying,
         Sandbox,
         Simulation,
