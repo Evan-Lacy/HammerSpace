@@ -42,6 +42,7 @@ namespace HammerSpace.Data
             return new ApplicationDbContext();
         }
 
+        public DbSet<Movie> Movies { get; set; }
         public DbSet<Game> Games { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

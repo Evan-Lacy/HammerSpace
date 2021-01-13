@@ -18,6 +18,7 @@ namespace HammerSpace.Data
 
         //CRUD methods for the users inventory
 
+        public virtual List<OwnedMovies> OwnedMovies { get; set; } = new List<OwnedMovies>();
         public virtual List<OwnedGames> OwnedGames { get; set; } = new List<OwnedGames>();
     }
 }

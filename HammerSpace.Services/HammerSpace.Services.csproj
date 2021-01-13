@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameServices\BoardGameService.cs" />
+    <Compile Include="MovieService.cs" />
     <Compile Include="GameServices\GameService.cs" />
     <Compile Include="GameServices\VideoGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +71,11 @@
     </ProjectReference>
     <ProjectReference Include="..\HammerSpace.Models\HammerSpace.Models.csproj">
       <Project>{97FDB379-DE76-40CB-A2E1-47E1FF5ECDFC}</Project>
+      <Project>{16AF624F-0486-4796-ABA5-723BE8F12F7E}</Project>
+      <Name>HammerSpace.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HammerSpace.Models\HammerSpace.Models.csproj">
+      <Project>{97fdb379-de76-40cb-a2e1-47e1ff5ecdfc}</Project>
       <Name>HammerSpace.Models</Name>
     </ProjectReference>
   </ItemGroup>
