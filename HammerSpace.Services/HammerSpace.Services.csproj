@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InventoryService\InventoryService.cs" />
     <Compile Include="MovieService.cs" />
     <Compile Include="GameServices\GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

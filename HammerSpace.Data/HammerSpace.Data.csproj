@@ -70,6 +70,10 @@
     <Compile Include="Migrations\202101131714366_Inventory potential and Owned changes.Designer.cs">
       <DependentUpon>202101131714366_Inventory potential and Owned changes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101132048237_Updated Inventory data class.cs" />
+    <Compile Include="Migrations\202101132048237_Updated Inventory data class.Designer.cs">
+      <DependentUpon>202101132048237_Updated Inventory data class.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="OwnedMovies.cs" />
@@ -146,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101131714366_Inventory potential and Owned changes.resx">
       <DependentUpon>202101131714366_Inventory potential and Owned changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101132048237_Updated Inventory data class.resx">
+      <DependentUpon>202101132048237_Updated Inventory data class.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

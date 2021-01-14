@@ -52,7 +52,7 @@ namespace HammerSpace.Data.Games
     }
 
 
-    public enum GameType
+     public enum GameType
     {
         [Description("Video Game")]
         VideoGame = 1,

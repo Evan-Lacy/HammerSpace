@@ -22,7 +22,7 @@ namespace HammerSpace.Data
         //Read - See all Owned Games and Movies
         //Delete - Remove items from the Owned lists
 
-        public virtual List<OwnedMovies> OwnedMovies { get; set; } = new List<OwnedMovies>();
-        public virtual List<OwnedGames> OwnedGames { get; set; } = new List<OwnedGames>();
+        public virtual ICollection<OwnedMovies> OwnedMovies { get; set; } = new List<OwnedMovies>();
+        public virtual ICollection<OwnedGames> OwnedGames { get; set; } = new List<OwnedGames>();
     }
 }

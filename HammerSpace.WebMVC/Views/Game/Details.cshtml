@@ -4,9 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<div>
-    <h4>Game Details</h4>
+<div class="sectionHeader">
+    <br />
+    <h4 style="color:white; text-decoration:underline">Game Details</h4>
+    <br />
+</div>
     <hr />
+<div class="infoList">
+    <br />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.GameTitle)
@@ -45,13 +50,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.GameTypeString)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.GameType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GameType)
         </dd>
 
         @{ if (Model.GameType == HammerSpace.Data.Games.GameType.BoardGame)
@@ -144,8 +142,8 @@
             }
         }
     </dl>
-</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.GameId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+</div>
