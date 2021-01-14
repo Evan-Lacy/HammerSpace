@@ -4,7 +4,11 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<div class="sectionHeader">
+    <br />
+    <h4 style="color:white; text-decoration:underline">Create a Movie</h4>
+    <br />
+</div>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +16,6 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>MovieCreate</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -75,7 +78,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Create" class="btn btn-default clicker" />
         </div>
     </div>
 </div>
