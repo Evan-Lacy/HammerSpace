@@ -23,7 +23,7 @@ HammerSpace is an N-tier ASP.NET MVC Web App which was developed for the sole pu
 
 ### [Planning document: initial wireframe](https://drive.google.com/file/d/1PbBwafo7-JlFFBmV9PCdH6i9G3dTlgsc/view?usp=sharing)
 
-###[Ticketing via Trello board](https://trello.com/b/A8aNQuza/hammer-space-tickets)
+### [Ticketing via Trello board](https://trello.com/b/A8aNQuza/hammer-space-tickets)
 
 
 ## Technologies 
